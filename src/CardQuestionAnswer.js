@@ -4,27 +4,24 @@ import './App.scss'
 const CardQuestionAnswer = ({QuestionAnswer}) => {
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [showScore, setShowScore] = useState(false)
+  const [score, setScore] = useState(0)
 
-  const handleButton = () => {
-    // if(QuestionAnswer[currentQuestion].answerOptions[currentQuestion].isCorrect === false) {
-    // } else {
-    //   setCurrentQuestion(currentQuestion + 1)
-    // }
-    if(currentQuestion < QuestionAnswer.length - 1) {
+  const handleButton = ({isCorrect}) => {
+    if(isCorrect === true || currentQuestion < QuestionAnswer.length - 1) {
+      setScore(score + 1);
       setCurrentQuestion(currentQuestion + 1);
-    } else {
+    }else {
       setShowScore(true)
     }
-    
   }
-  {console.log(QuestionAnswer.length)}
+
   return (
     <div>
       {showScore 
         ? (
           <div className="score">
             <h1>
-              You scored 1 out of {QuestionAnswer.length}
+              You scored {score} out of {QuestionAnswer.length}
             </h1>
           </div>
         ) 
@@ -41,7 +38,7 @@ const CardQuestionAnswer = ({QuestionAnswer}) => {
             <div className="answer">
               {QuestionAnswer[currentQuestion].answerOptions.map((answerOption) => 
                 <div key={answerOption.id}>
-                  <button onClick={handleButton}>{answerOption.answerText}</button>
+                  <button onClick={() => handleButton(answerOption.isCorrect)}>{answerOption.answerText}</button>
                 </div>
               )}
             </div>
