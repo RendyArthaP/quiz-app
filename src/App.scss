@@ -1,7 +1,66 @@
-$primary-color: #FFFFFF;
+$primary-color: aqua;
+$text-black: black;
 
-.App {
-  align-items: center;
-  text-align: center;
+body {
+  background-color: $primary-color;
 }
 
+.App {
+  h1 {
+    color: $text-black;
+    text-align: center;
+  }
+}
+
+.wrapper-card {
+  text-align: center;
+  border: 1px solid black;
+  width:30rem;
+  align-items: center;
+  display:flex;
+  flex-direction: column;
+  margin:auto;
+  border-radius: 10px;
+  .question {
+    h2 {
+      text-align: center;
+    }
+  }
+}
+
+.score {
+  background-color: blue;
+  width:30rem;
+  border-radius: 5px;
+  padding: 1rem;
+  margin:auto;
+
+  h1 {
+    color: white;
+  }
+}
+
+.question-answer {
+
+}
+
+.question {
+
+}
+
+.answer {
+  margin-bottom: 2rem;
+  button {
+    width: 8rem;
+    margin-bottom: 0.5rem;
+    display:flex;
+    border-radius :10px;
+    cursor: pointer;
+  }
+  .success {
+    background-color: greenyellow;
+  }
+  .failed {
+    background-color: red;
+  }
+}
